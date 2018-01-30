@@ -1,4 +1,4 @@
-project(qt5test)
+project(qt5test CXX)
 cmake_minimum_required(VERSION 2.8.12)
 
 # Qt library
