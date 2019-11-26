@@ -16,4 +16,4 @@ qt5_use_modules(heightmap Widgets OpenGL)
 target_link_libraries(heightmap ${QT_LIBRARIES} ${OPENGL_LIBRARIES})
 
 enable_testing()
-add_test(NAME t_heightmap COMMAND xvfb-run ${CMAKE_CROSSCOMPILING_EMULATOR} $<TARGET_FILE:heightmap>)
+add_test(NAME t_heightmap COMMAND xvfb-run ${CMAKE_CROSSCOMPILING_EMULATOR} $<TARGET_FILE:heightmap> ${MAIN_ARGS})

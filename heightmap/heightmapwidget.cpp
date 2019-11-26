@@ -35,6 +35,7 @@
 #include <GL/glu.h>
 #include <QMatrix4x4>
 #include <QPainter>
+#include <iostream>
 
 const float MAP_SIZE = 5.0;
 
@@ -60,13 +61,13 @@ void HeightmapWidget::initializeGL()
     // init OpenGL
     initializeOpenGLFunctions();
 
-    qInfo() << "Widget OpenGl: " << format().majorVersion() << "." << format().minorVersion();
-    qInfo() << "Context valid: " << context()->isValid();
-    qInfo() << "Really used OpenGl: " << context()->format().majorVersion() << "." << context()->format().minorVersion();
-    qInfo() << "OpenGl information: VENDOR:       " << (const char*)glGetString(GL_VENDOR);
-    qInfo() << "                    RENDERDER:    " << (const char*)glGetString(GL_RENDERER);
-    qInfo() << "                    VERSION:      " << (const char*)glGetString(GL_VERSION);
-    qInfo() << "                    GLSL VERSION: " << (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION);
+    std::cout << "Widget OpenGl: " << format().majorVersion() << "." << format().minorVersion() << std::endl;
+    std::cout << "Context valid: " << context()->isValid() << std::endl;
+    std::cout << "Really used OpenGl: " << context()->format().majorVersion() << "." << context()->format().minorVersion() << std::endl;
+    std::cout << "OpenGl information: VENDOR:       " << (const char*)glGetString(GL_VENDOR) << std::endl;
+    std::cout << "                    RENDERDER:    " << (const char*)glGetString(GL_RENDERER) << std::endl;
+    std::cout << "                    VERSION:      " << (const char*)glGetString(GL_VERSION) << std::endl;
+    std::cout << "                    GLSL VERSION: " << (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 
     // Load heightmap
     const QImage img = QImage(":/heightmap.png");
