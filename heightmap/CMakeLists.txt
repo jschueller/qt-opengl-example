@@ -1,5 +1,6 @@
-project(qt5test CXX)
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.1)
+set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the build type")
+project(heightmap CXX)
 
 # Qt library
 find_package(Qt5Widgets)
@@ -10,6 +11,9 @@ set (CMAKE_CXX_STANDARD 11)
 find_package(OpenGL)
 
 # executable
-add_executable(qt5test main.cxx heightmapwidget.cpp)
-qt5_use_modules(qt5test Widgets OpenGL)
-target_link_libraries(qt5test ${QT_LIBRARIES} ${OPENGL_LIBRARIES})
+add_executable(heightmap main.cxx heightmapwidget.cpp)
+qt5_use_modules(heightmap Widgets OpenGL)
+target_link_libraries(heightmap ${QT_LIBRARIES} ${OPENGL_LIBRARIES})
+
+enable_testing()
+add_test(NAME t_heightmap COMMAND xvfb-run ${CMAKE_CROSSCOMPILING_EMULATOR} $<TARGET_FILE:heightmap>)

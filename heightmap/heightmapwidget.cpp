@@ -60,6 +60,14 @@ void HeightmapWidget::initializeGL()
     // init OpenGL
     initializeOpenGLFunctions();
 
+    qInfo() << "Widget OpenGl: " << format().majorVersion() << "." << format().minorVersion();
+    qInfo() << "Context valid: " << context()->isValid();
+    qInfo() << "Really used OpenGl: " << context()->format().majorVersion() << "." << context()->format().minorVersion();
+    qInfo() << "OpenGl information: VENDOR:       " << (const char*)glGetString(GL_VENDOR);
+    qInfo() << "                    RENDERDER:    " << (const char*)glGetString(GL_RENDERER);
+    qInfo() << "                    VERSION:      " << (const char*)glGetString(GL_VERSION);
+    qInfo() << "                    GLSL VERSION: " << (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION);
+
     // Load heightmap
     const QImage img = QImage(":/heightmap.png");
 
